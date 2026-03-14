@@ -36,9 +36,10 @@ API.interceptors.request.use((req) => {
 
   const profile = JSON.parse(localStorage.getItem("profile"));
 
-  if (profile?.jwtToken) {
-    req.headers.Authorization = `Bearer ${profile.jwtToken}`;
+  if (profile?.token) {
+    req.headers.Authorization = `Bearer ${profile.token}`;
   }
 
   return req;
 });
+export default API;
