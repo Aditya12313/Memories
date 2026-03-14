@@ -1,7 +1,7 @@
 import axios from "axios"; // import axios to send HTTP requests
 
 const API=axios.create({
-    baseURL: "http://localhost:5000" //backend baseURL create axios instance with backend base URL
+    baseURL: "https://memories-3-8cbw.onrender.com/" //backend baseURL create axios instance with backend base URL
 })
 
 export const fetchPost = () => API.get("/posts"); //get all posts // send GET request to fetch all posts
