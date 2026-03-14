@@ -32,11 +32,13 @@ export const loginuser=(formData)=>{
 export const googleLoginUser=(token)=>{
     return API.post("/auth/google-login",{token});
 }
+API.interceptors.request.use((req) => {
 
-API.interceptors.request.use((req)=>{
-    const token=localStorage.getItem("token");
-    if(token){
-        req.headers.Authorization=`Bearer ${token}`;
-    }
-    return req;
-})
+  const profile = JSON.parse(localStorage.getItem("profile"));
+
+  if (profile?.jwtToken) {
+    req.headers.Authorization = `Bearer ${profile.jwtToken}`;
+  }
+
+  return req;
+});

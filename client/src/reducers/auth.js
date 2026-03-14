@@ -2,7 +2,7 @@ const authReducer =(state={authData:null},action)=>{
     switch(action.type){
         case "LOGIN":
             case"SIGNUP":
-            localStorage.setItem("token",action.payload.jwtToken)
+            localStorage.setItem("profile", JSON.stringify(action.payload));
             return {
                 ...state,authData: action.payload
             }
